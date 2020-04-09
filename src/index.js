@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './routes/main';
-import * as serviceWorker from './serviceWorker';
+import App from './main';
+import './master.css';
+import './masterFonts.js';
+import './services/core';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,4 +11,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-serviceWorker.unregister();
