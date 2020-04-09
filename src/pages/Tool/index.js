@@ -40,8 +40,7 @@ export default function Tool(props){
                 <button onClick={() => startRent()}>Alugar</button>
             </div>
         </Content>
-        :
-        <Redirect to="/error"/>
+        :<Redirect to="/error"/>
     }
     </>
     );
