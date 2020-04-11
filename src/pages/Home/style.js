@@ -1,6 +1,7 @@
 import style from "styled-components";
 export const Content = style.div`
     background: #F6F6F6;
+    min-height: 100vh;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -19,6 +20,7 @@ export const Content = style.div`
     a{
         text-decoration: none;
     }
+
 `
 export const Title = style.h1`
         font-size: 40px;
@@ -28,7 +30,7 @@ export const Title = style.h1`
 `
 
 export const ContentBox = style.div`
-    display:flex;
+    display: flex;
     height: 240px;
     width: 200px;
     justify-content: center;
@@ -46,5 +48,11 @@ export const ContentBox = style.div`
     h4{
         font-size: 28px;
         color: #9B9B9B
+    }
+    &:hover{
+        cursor: pointer
+    }
+    &:active{
+        filter:brightness(105%);
     }
 `

@@ -83,6 +83,16 @@ export default class Tools{
         })
         return searched_tool[0];
     }
+    static indexByIdUser(id_user){
+        let registered_tools = Tools.index();    
+        const searched_tools = registered_tools.filter(element =>{
+            if(element.id_user-id_user === 0){
+                return element;
+            }
+            return null
+        })
+        return searched_tools;
+    }
     static update(tool){
         let registered_tools = Tools.index();    
         registered_tools = registered_tools.map(element =>{
@@ -107,6 +117,19 @@ export default class Tools{
         let registered_tools = Tools.index();
         registered_tools.push({id: registered_tools.length, ...tool});
         localStorage.setItem("tools", JSON.stringify(registered_tools));
+    }
+    static verifyDataTool(data){
+        const {name, description, amount, diary_cost} = data;
+        if(!name || !description || !amount || !diary_cost){
+            return 'Preencha todos os campos!'
+        }
+        else if(amount<1){
+            return 'Quantidade inválida'
+        }
+        else if(diary_cost<0){
+            return 'Custo diário inválido'
+        }
+        return ''
     }
 }
 new Tools();

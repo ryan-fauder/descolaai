@@ -9,6 +9,7 @@ export const Content = style.header`
     align-items: center;
     font-size: 15px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    padding: 10px;
     .group{
         margin: 0 50px;
         display: flex;
@@ -18,18 +19,19 @@ export const Content = style.header`
             height: 50px;
             margin: 0 10px 0 0;
         }
-        a{
-            text-decoration: none;
-            color: black;
+        p{
             margin: 10px;
             text-transform: uppercase;
             font-weight: 700;
             font-family: Roboto;
         }
     }
+    a{
+        text-decoration: none;
+        color: black;
+    }
     h4{
         font-family: Fredoka One;
-        
         font-size: 30px;
     }
 ` 

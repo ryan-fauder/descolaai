@@ -2,6 +2,9 @@ export default class Users{
     static index(){
         return JSON.parse(localStorage.getItem("users"));
     }
+    static showCurrentUser(){
+        return JSON.parse(localStorage.getItem("user"));
+    }
     constructor(){
         let registered_users = Users.index();
         const default_users = [
@@ -22,6 +25,16 @@ export default class Users{
         let registered_users = Users.index();    
         const searched_user = registered_users.filter(element =>{
             if(element.id === id){
+                return element;
+            }
+            return null
+        })
+        return searched_user[0];
+    }
+    static showByUsername(username){
+        let registered_users = Users.index();    
+        const searched_user = registered_users.filter(element =>{
+            if(element.username === username){
                 return element;
             }
             return null

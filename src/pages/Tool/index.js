@@ -9,12 +9,12 @@ import {TollOutlined, Image} from '@material-ui/icons'
 export default function Tool(props){
     const [tool, setTool] = useState(ToolClass.show(props.match.params.id));
     useEffect(() => {
-        document.title = `${tool.name} - Descola aí`
+        document.title = `${tool.amount} - Descola aí`
     }, [tool])
     const own_Tool = User.show(tool.id_user);
     const startRent = () => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        setTool(Rent.store(tool, user));
+        const user = User.showCurrentUser();
+        setTool({...Rent.store(tool, user)});
     }
     return(
     <>

@@ -28,6 +28,10 @@ export const Content = style.div`
         color: #FFF;
         font-size: 18px;
     }
+    button:hover{
+        cursor:pointer;
+        filter: brightness(105%);
+    }
     .subgroup{
         margin: 0 0 10px 0;
     }

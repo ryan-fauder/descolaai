@@ -8,7 +8,11 @@ export const getToken = () =>
 
 /* Login e logout*/
 export const logout = () => {
+    const user = User.showCurrentUser()
+    user.token = '';
+    User.update(user);
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
 };
 
 

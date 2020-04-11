@@ -9,6 +9,16 @@ export default class Rents{
             localStorage.setItem("rents", JSON.stringify([]));
         }
     }
+    static indexByIdUser(id_user){
+        let registered_rents = Rents.index();    
+        const searched_rents = registered_rents.filter(element =>{
+            if(element.id_user-id_user === 0){
+                return element;
+            }
+            return null
+        })
+        return searched_rents;
+    }
     static show(id){
         let registered_rents = Rents.index();    
         const searched_rent = registered_rents.filter(element =>{

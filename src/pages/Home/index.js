@@ -1,6 +1,7 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Content, ContentBox, Title} from "./style.js";
-import { Link } from "react-router-dom";
+import Form from "../../components/Form";
+//import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 import Navbar from "../../components/Navbar";
 import { Add } from '@material-ui/icons';
@@ -10,20 +11,25 @@ export default function Home() {
     useEffect(() => {
         document.title = "Início - Descola aí"
     }, [])
+    const currentUser = User.showCurrentUser();
+    const [showForm, setShowForm] = useState(false);
 return(
     <Content>
         <Navbar/>
+        {
+            showForm &&
+            <Form close={() => setShowForm(false)} />
+        }
         <main>
             <Title>Início</Title>
             <section>
-            <Link to={'/criar'}>
-                <ContentBox>
+                <ContentBox onClick={() => setShowForm(true)}>
                     <Add style={{color: '#9B9B9B', fontSize: "50px"}}/>
                     <h4>Nova ferramenta</h4>
                 </ContentBox>
-            </Link>
             {
                 Tool.index().map((element, index) => (
+                    element.amount > 0 && element.id_user !== currentUser.id &&
                     <Card 
                         key={index}
                         name={element.name}

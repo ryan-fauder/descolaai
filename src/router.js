@@ -31,7 +31,7 @@ export default () =>(
         <Route path='/' exact component={Login}/>
         <Route path='/cadastro' component={Register}/>
         <UserRoute path='/inicio' component={Home}/>
-        <UserRoute path='/perfil' component={Perfil}/>
+        <UserRoute path='/perfil/:username' component={Perfil}/>
         <UserRoute path='/ferramenta/:id' component={Tool}/>
         <Route path="*" component={Error} />
       </Switch>
