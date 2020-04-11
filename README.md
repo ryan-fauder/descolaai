@@ -26,12 +26,12 @@ Além disso, já existem algumas ferramentas registradas para demonstração.
 Assim, pode-se realizar o login e acessar a plataforma. Além disso, há a possibilidade de realizar o cadastro de um novo usuário.
 
 ## Correções para versões posteriores:
-*Utilizar o bcrypt para encriptar as senhas;
-*Utilizar o jsonwebtoken para gerar os tokens com periodo para expiração
-*Implementar um dashboard;
-*Aprimorar autenticação;
-*Atualizar o design e torná-lo complementamente responsivo;
-*Finalizar o backend e conectá-lo
+* Utilizar o bcrypt para encriptar as senhas;
+* Utilizar o jsonwebtoken para gerar os tokens com periodo para expiração
+* Implementar um dashboard;
+* Aprimorar autenticação;
+* Atualizar o design e torná-lo complementamente responsivo;
+* Finalizar o backend e conectá-lo
 
 ## Agradecimentos
 Agradeço pela oportunidade de participar do seletivo para estágio da Supera! Esse desafio proposto foi muito interessante. Através dele, consegui evoluir na programação web, aprender conceitos novos e descobrir mais sobre o React. Me empenhei bastante para esse desafio e adorei a proposta! Assim, ainda pretendo continuar no desenvolvimento desse projeto.
