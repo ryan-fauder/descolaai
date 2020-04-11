@@ -32,6 +32,7 @@ export default class Users{
         return searched_user[0];
     }
     static showByUsername(username){
+        try{
         let registered_users = Users.index();    
         const searched_user = registered_users.filter(element =>{
             if(element.username === username){
@@ -40,8 +41,12 @@ export default class Users{
             return null
         })
         return searched_user[0];
+        } catch{
+            return null;
+        }
     }
     static update(user){
+        try{
         let registered_users = Users.index();    
         registered_users = registered_users.map(element =>{
             if(element.id === user.id){
@@ -49,9 +54,13 @@ export default class Users{
             }
             return element;
         })
-        localStorage.setItem("users", JSON.stringify(registered_users));
+        localStorage.setItem("users", JSON.stringify(registered_users));            
+        }catch {
+            return null;
+        }
     }
     static delete(user){
+        try{
         let registered_users = Users.index();
         registered_users = registered_users.map(element =>{
             if(element.id === user.id){
@@ -60,6 +69,9 @@ export default class Users{
             return element;
         })
         localStorage.setItem("users", JSON.stringify(registered_users));
+        }catch {
+            return null;
+        }
     }
     static store(user){
         let registered_users = Users.index();

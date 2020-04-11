@@ -1,8 +1,11 @@
 
 import User from "./core";
 /*Corrigir o isAuth */
-export const isAuth = () =>
-    localStorage.getItem("token") !== '';
+export const isAuth = () =>{
+    console.log(localStorage.getItem("token"));
+    console.log(localStorage.getItem("token") !== '');
+    return localStorage.getItem("token") === '';
+};
 export const getToken = () => 
     localStorage.getItem("token");
 

@@ -105,17 +105,14 @@ export default class Tools{
     }
     static delete(tool){
         let registered_tools = Tools.index();
-        registered_tools = registered_tools.map(element =>{
-            if(element.id === tool.id){
-                return null;
-            }
-            return element;
+        registered_tools = registered_tools.filter(element =>{
+            return element.id - tool.id  !== 0 ? element : null;
         })
         localStorage.setItem("tools", JSON.stringify(registered_tools));
     }
     static store(tool){
         let registered_tools = Tools.index();
-        registered_tools.push({id: registered_tools.length, ...tool});
+        registered_tools.push({id: registered_tools[registered_tools.length - 1].id + 1 || 0, ...tool});
         localStorage.setItem("tools", JSON.stringify(registered_tools));
     }
     static verifyDataTool(data){

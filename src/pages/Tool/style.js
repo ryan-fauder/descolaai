@@ -3,7 +3,7 @@ export const Content = style.div`
     display: grid;
     grid-template-areas: "1 2";
     h1{
-        margin: 20px 0;
+        margin: 10px 0;
         font-weight: 700;
     }
     .group{
@@ -27,13 +27,30 @@ export const Content = style.div`
         border: 0;
         color: #FFF;
         font-size: 18px;
-    }
-    button:hover{
-        cursor:pointer;
-        filter: brightness(105%);
+        &:hover{
+            cursor: pointer;
+            filter: brightness(105%);
+        }
+        &:disabled{
+            
+            filter: none;
+            background: #ccc;
+            cursor:default;
+        }
     }
     .subgroup{
         margin: 0 0 10px 0;
+    }
+    a{
+        color: black;
+        text-decoration: none;
+    }
+    .icon-control{
+        margin: 0 0 10px 0;
+        svg: hover{
+            cursor: pointer;
+            filter: brightness(105%);
+        }
     }
 `
 export const Title = style.h6`

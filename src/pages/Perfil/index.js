@@ -65,19 +65,23 @@ export default function Login(props) {
             <>
             <hr id="alugados"/>
             <section>
-                <Title>Alugados</Title>
+                <Title>Ferramentas Alugadas</Title>
                 <div className='cards'>
                 {Rent.indexByIdUser(perfil_user.id).map((element, index) =>{
-                    let tool = Tool.show(element.id_tool);
-                    return(
-                        <Card 
-                        key={index}
-                        name={tool.name}
-                        username={User.show(tool.id_user).username}
-                        diary_cost={tool.diary_cost}
-                        id={tool.id}
-                    />
-                    )
+                    try{ 
+                        let tool = Tool.show(element.id_tool);
+                        return(
+                            <Card 
+                            key={index}
+                            name={tool.name}
+                            username={User.show(tool.id_user).username}
+                            diary_cost={tool.diary_cost}
+                            id={tool.id}
+                            />
+                            )
+                    } catch{
+                        return null ;
+                    }
                 }
                 )}   
                 </div>            
@@ -86,9 +90,8 @@ export default function Login(props) {
             }
             <hr id="ferramentas"/>
             <section>
-            <Title>Ferramentas</Title>
+            <Title>Minhas Ferramentas</Title>
             <div className='cards'>
-            {console.log(Tool.indexByIdUser(perfil_user.id))}
             {Tool.indexByIdUser(perfil_user.id).map((element, index) =>(
                    <Card 
                    key={index}

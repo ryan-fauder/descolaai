@@ -1,24 +1,27 @@
 import React, {useEffect, useState} from "react";
 import {Content, ContentBox, Title} from "./style.js";
 import Form from "../../components/Form";
-//import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 import Navbar from "../../components/Navbar";
 import { Add } from '@material-ui/icons';
 import Tool from '../../services/tool';
 import User from '../../services/core';
-export default function Home() {
+export default function Home(props) {
     useEffect(() => {
         document.title = "Início - Descola aí"
     }, [])
     const currentUser = User.showCurrentUser();
     const [showForm, setShowForm] = useState(false);
+    const tools = Tool.index();
 return(
     <Content>
         <Navbar/>
         {
             showForm &&
-            <Form close={() => setShowForm(false)} />
+            <Form close={() => setShowForm(false)} func={(e) =>{
+                Tool.store(e)
+                props.history.push(`/ferramenta/${tools[tools.length -1].id}`);
+            }} />
         }
         <main>
             <Title>Início</Title>
@@ -28,7 +31,7 @@ return(
                     <h4>Nova ferramenta</h4>
                 </ContentBox>
             {
-                Tool.index().map((element, index) => (
+                tools.map((element, index) => (
                     element.amount > 0 && element.id_user !== currentUser.id &&
                     <Card 
                         key={index}
