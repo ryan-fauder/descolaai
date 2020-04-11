@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import ToolClass from '../../services/tool';
 import User from '../../services/core';
@@ -12,14 +12,14 @@ export default function Tool(props){
         document.title = `${tool.amount} - Descola aí`
     }, [tool])
     const own_Tool = User.show(tool.id_user);
+    const user = User.showCurrentUser();
     const startRent = () => {
-        const user = User.showCurrentUser();
         setTool({...Rent.store(tool, user)});
     }
     return(
     <>
     <Navbar />
-    {tool ?
+    {tool && user ?
         <Content>
             <Image style={{margin:"auto", color:'#CCC ', fontSize: "350px"}} />
             <div className="group">
@@ -32,12 +32,12 @@ export default function Tool(props){
                     <Title>Descrição:</Title>
                     <h3>{tool.description}</h3>
                 </div>
-                <h3>Por {own_Tool.username}</h3>
+                <Link to={`/perfil/${own_Tool.username}`}><h3>Por {own_Tool.username}</h3></Link>
                 <div className='toll'>
                     <TollOutlined style={{ color:'#DB961F', fontSize: "30px"}} />
                     <h3>R${tool.diary_cost} / dia</h3>
                 </div>
-                <button onClick={() => startRent()}>Alugar</button>
+                <button disable={user.id-tool.id_user===0} onClick={() => startRent()}>Alugar</button>
             </div>
         </Content>
         :<Redirect to="/error"/>
