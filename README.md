@@ -32,17 +32,3 @@ Assim, pode-se realizar o login e acessar a plataforma. Além disso, há a possi
 * Aprimorar autenticação;
 * Atualizar o design e torná-lo complementamente responsivo;
 * Finalizar o backend e conectá-lo
-
-## Agradecimentos
-Agradeço pela oportunidade de participar do seletivo para estágio da Supera! Esse desafio proposto foi muito interessante. Através dele, consegui evoluir na programação web, aprender conceitos novos e descobrir mais sobre o React. Me empenhei bastante para esse desafio e adorei a proposta! Assim, ainda pretendo continuar no desenvolvimento desse projeto.
-
-## Contato
-Nome: Ryan Fernandes Auder Lopes;
-
-Email: ryan.fauder@gmail.com
-
-Instituição: Universidade Federal do Goiás - Campus Samambaia;
-
-Curso: Ciência da Computação - Primeiro semestre;
-
-Data de envio: 08/04/2020;
