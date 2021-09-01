@@ -14,7 +14,7 @@ Descola aí é um site para aluguel de ferramentas perfeito para àqueles que bu
 #282929
 #000000
 #### Características
-* Site parcialmente responsivo;
+* Site responsivo;
 * Cores indicativas;
 * Uso do framework Styled components para CSS 
 
