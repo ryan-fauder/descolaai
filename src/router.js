@@ -1,6 +1,6 @@
 
 import React from "react";
-import {BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 /*  Rotas do site */
 import Login from "./pages/Login";
@@ -12,8 +12,8 @@ import Tool from "./pages/Tool";
 import { isAuth } from "./services/auth";
 
 // Verifica se o usuário está logado
-function UserRoute({ component: Component, ...rest }){
-  return(
+function UserRoute({ component: Component, ...rest }) {
+  return (
     <Route {...rest}
       render={
         props => isAuth() ? (
@@ -25,16 +25,19 @@ function UserRoute({ component: Component, ...rest }){
     />
   );
 }
-export default () =>(
-    <BrowserRouter> 
-      <Switch>
-        <Route path='/' exact component={Login}/>
-        <Route path='/cadastro' component={Register}/>
-        <UserRoute path='/inicio' component={Home}/>
-        <UserRoute path='/perfil/:username' component={Perfil}/>
-        <UserRoute path='/ferramenta/:id' component={Tool}/>
-        <Route path="*" component={Error} />
-      </Switch>
-    </BrowserRouter>
-  )
-  
+
+const browserRoutes = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path='/' exact component={Login} />
+      <Route path='/cadastro' component={Register} />
+      <UserRoute path='/inicio' component={Home} />
+      <UserRoute path='/perfil/:username' component={Perfil} />
+      <UserRoute path='/ferramenta/:id' component={Tool} />
+      <Route path="*" component={Error} />
+    </Switch>
+  </BrowserRouter>
+);
+
+
+export default browserRoutes;
